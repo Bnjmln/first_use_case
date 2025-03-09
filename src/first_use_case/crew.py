@@ -6,8 +6,6 @@ from crewai_tools import SerperDevTool, WebsiteSearchTool
 # you can use the @before_kickoff and @after_kickoff decorators
 # https://docs.crewai.com/concepts/crews#example-crew-class-with-decorators
 
-web_tool = WebsiteSearchTool(website='https://www.ricoh-americalatina.com/es-cl')
-
 @CrewBase
 class EmailAnalyzeCrew:
     """Email Analyze Crew"""
@@ -20,14 +18,16 @@ class EmailAnalyzeCrew:
         return Agent(
             config=self.agents_config["web_searcher"],
             verbose=True,
-            tools=[SerperDevTool()]
+            tools=[SerperDevTool(),]
         )
     @agent
     def services_expert(self) -> Agent:
         return Agent(
             config=self.agents_config["services_expert"],
             verbose=True,
-            tools=[web_tool]
+            tools=[SerperDevTool(
+                search_url='https://www.ricoh-americalatina.com/en'
+            ),]
         )
     @agent
     def services_recommender(self) -> Agent:

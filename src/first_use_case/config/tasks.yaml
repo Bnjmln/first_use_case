@@ -3,7 +3,7 @@ investigate_person:
     According to the corporate email {corporate_email}, search for full name, company, job tittle and/or area of expertise to whom does it belong the email.
   expected_output: >
     In English, a short description of the person, like "This corporate email looks to belong to John Doe/Jone Doe, here's information about him/her:"
-    Follow a strict order for the answer:
+    The answer must follow the next structure:
     - Short description
     - Email: 
     - Full Name:
