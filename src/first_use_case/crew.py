@@ -35,6 +35,12 @@ class EmailAnalyzeCrew:
         config=self.agents_config["services_recommender"],
         verbose=True
     )
+    @agent
+    def email_writer(self) -> Agent:
+        return Agent(
+        config=self.agents_config["email_writer"],
+        verbose=True
+    )
     
     @task
     def investigate_person(self) -> Task:
@@ -51,6 +57,12 @@ class EmailAnalyzeCrew:
         return Task(
             config=self.tasks_config["make_match"],
             output_file='output/report.md'
+        )
+    @task
+    def write_email(self) -> Task:
+        return Task(
+            config=self.tasks_config["write_email"],
+            output_file='output_email/report.md'
         )
 
     @crew

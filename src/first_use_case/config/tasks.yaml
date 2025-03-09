@@ -25,3 +25,11 @@ make_match:
   expected_output: >
     In English, a brief explanation of how the match was made, then list the services and describe for what is used each service and why would match with the person's job tittle.
   agent: services_recommender
+
+write_email:
+  description: >
+    Write an email for business communication.
+  expected_output: >
+    A clear, concise, and professional email for business communication, customer outreach, networking, and formal inquiries. 
+    Adapt the writing style to the recipient, purpose, and industry while maintaining a polished and engaging tone. Ensure perfect grammar and structure. Direct the email to the person studied.
+  agent: email_writer
